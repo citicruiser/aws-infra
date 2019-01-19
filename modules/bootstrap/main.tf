@@ -1,6 +1,6 @@
 # This is a Terraform module for managing the s3 bucket and dynamodb table for the terraform state store.
 
-resource "aws_s3_bucket" "terraform" {
+resource "aws_s3_bucket" "s3" {
 
   bucket = "${var.s3_bucket}"
 
@@ -25,7 +25,7 @@ resource "aws_s3_bucket" "terraform" {
   }
 }
 
-resource "aws_dynamodb_table" "terraform" {
+resource "aws_dynamodb_table" "dynamodb" {
   name           = "${var.dynamodb_table}"
   read_capacity  = 5
   write_capacity = 5

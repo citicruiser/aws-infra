@@ -2,9 +2,11 @@ provider "aws" {
   region              = "${var.region}"
   version             = "~> 1.8"
   allowed_account_ids = "${var.allowed_account_ids}"
+  shared_credentials_file = "${var.shared_credentials_file}"
+  profile                 = "${var.profile}"
 }
 
-module "aws_s3_bucket" "terraform" {
+module "bootstrap"  {
   source   = "../../modules/bootstrap"
   app_env  = "${var.app_env}"
   app_name = "${var.app_name}"
