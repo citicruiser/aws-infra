@@ -68,6 +68,12 @@ output "private_subnets" {
   value       = ["${aws_subnet.private.*.id}"]
 }
 
+output "private2_subnets" {
+  description = "List of IDs of private2 subnets"
+  value       = ["${aws_subnet.private2.*.id}"]
+
+}
+
 output "private_subnets_cidr_blocks" {
   description = "List of cidr_blocks of private subnets"
   value       = ["${aws_subnet.private.*.cidr_block}"]
@@ -128,6 +134,10 @@ output "intra_subnets" {
   value       = ["${aws_subnet.intra.*.id}"]
 }
 
+output "intra2_subnets" {
+  description = "List of IDs of intra subnets"
+  value       = ["${aws_subnet.intra2.*.id}"]
+}
 output "intra_subnets_cidr_blocks" {
   description = "List of cidr_blocks of intra subnets"
   value       = ["${aws_subnet.intra.*.cidr_block}"]
