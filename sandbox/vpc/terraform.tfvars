@@ -7,7 +7,7 @@ profile = "wqpr"
 project = ""
 
 #VPC
-name = "pei1-vpc"
+name = "vpc-poc1"
 cidr= "10.1.0.0/16"
 azs  = ["us-east-1a", "us-east-1b"]
 
