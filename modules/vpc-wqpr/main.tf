@@ -204,6 +204,17 @@ resource "aws_subnet" "private2" {
 
   tags = "${merge(map("Name", format("%s-${var.private2_subnet_suffix}-%s", var.name, element(var.azs, count.index))), var.tags, var.private_subnet_tags)}"
 }
+
+resource "aws_subnet" "private3" {
+  count = "${var.create_vpc && length(var.private3_subnets) > 0 ? length(var.private3_subnets) : 0}"
+
+  vpc_id            = "${local.vpc_id}"
+  cidr_block        = "${var.private3_subnets[count.index]}"
+  availability_zone = "${element(var.azs, count.index)}"
+
+  tags = "${merge(map("Name", format("%s-${var.private3_subnet_suffix}-%s", var.name, element(var.azs, count.index))), var.tags, var.private_subnet_tags)}"
+}
+
 ##################
 # Database subnet
 ##################
@@ -281,18 +292,9 @@ resource "aws_subnet" "intra" {
   cidr_block        = "${var.intra_subnets[count.index]}"
   availability_zone = "${element(var.azs, count.index)}"
 
-  tags = "${merge(map("Name", format("%s-data1-%s", var.name, element(var.azs, count.index))), var.tags, var.intra_subnet_tags)}"
-}
-//resource added for WQPR
-resource "aws_subnet" "intra2" {
-  count = "${var.create_vpc && length(var.intra2_subnets) > 0 ? length(var.intra2_subnets) : 0}"
-
-  vpc_id            = "${local.vpc_id}"
-  cidr_block        = "${var.intra2_subnets[count.index]}"
-  availability_zone = "${element(var.azs, count.index)}"
-
   tags = "${merge(map("Name", format("%s-data2-%s", var.name, element(var.azs, count.index))), var.tags, var.intra_subnet_tags)}"
 }
+
 
 
 ##############
@@ -433,6 +435,13 @@ resource "aws_route_table_association" "private2" {
   route_table_id = "${element(aws_route_table.private.*.id, (var.single_nat_gateway ? 0 : count.index))}"
 }
 
+resource "aws_route_table_association" "private3" {
+  count = "${var.create_vpc && length(var.private3_subnets) > 0 ? length(var.private3_subnets) : 0}"
+
+  subnet_id      = "${element(aws_subnet.private3.*.id, count.index)}"
+  route_table_id = "${element(aws_route_table.private.*.id, (var.single_nat_gateway ? 0 : count.index))}"
+}
+
 resource "aws_route_table_association" "database" {
   count = "${var.create_vpc && length(var.database_subnets) > 0 ? length(var.database_subnets) : 0}"
 
@@ -461,13 +470,6 @@ resource "aws_route_table_association" "intra" {
   route_table_id = "${element(aws_route_table.intra.*.id, 0)}"
 }
 
-#resource added for WQPR
-resource "aws_route_table_association" "intra2" {
-  count = "${var.create_vpc && length(var.intra2_subnets) > 0 ? length(var.intra2_subnets) : 0}"
-
-  subnet_id      = "${element(aws_subnet.intra2.*.id, count.index)}"
-  route_table_id = "${element(aws_route_table.intra.*.id, 0)}"
-}
 resource "aws_route_table_association" "public" {
   count = "${var.create_vpc && length(var.public_subnets) > 0 ? length(var.public_subnets) : 0}"
 

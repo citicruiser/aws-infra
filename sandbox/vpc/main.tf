@@ -28,10 +28,13 @@ module "vpc" {
   cidr = "${var.cidr}"
   azs             = "${var.azs}"
   public_subnets  = "${var.public_subnets}"
+  //web1, web2, and data1 are internal with Internet
   private_subnets = "${var.web1_subnets}"
   private2_subnets = "${var.web2_subnets}"
-  intra_subnets       = "${var.data1_subnets}"
-  intra2_subnets      = "${var.data2_subnets}"
+  private3_subnets = "${var.data1_subnets}"
+  //data2 is internal without internet
+  intra_subnets       = "${var.data2_subnets}"
+ // intra2_subnets      = "${var.data2_subnets}"
   assign_generated_ipv6_cidr_block = "${var.assign_generated_ipv6_cidr_block}"
 
   enable_nat_gateway = true

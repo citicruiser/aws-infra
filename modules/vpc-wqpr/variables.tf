@@ -44,6 +44,11 @@ variable "private2_subnet_suffix" {
   default     = "web2"
 }
 
+variable "private3_subnet_suffix" {
+  description = "Suffix to append to private subnets name"
+  default     = "data1"
+}
+
 variable "database_subnet_suffix" {
   description = "Suffix to append to database subnets name"
   default     = "db"
@@ -74,6 +79,11 @@ variable "private2_subnets" {
   default     = []
 }
 
+variable "private3_subnets" {
+  description = "A list of private subnets inside the VPC"
+  default     = []
+}
+
 variable "database_subnets" {
   type        = "list"
   description = "A list of database subnets"
@@ -93,12 +103,6 @@ variable "elasticache_subnets" {
 }
 
 variable "intra_subnets" {
-  type        = "list"
-  description = "A list of intra subnets"
-  default     = []
-}
-
-variable "intra2_subnets" {
   type        = "list"
   description = "A list of intra subnets"
   default     = []

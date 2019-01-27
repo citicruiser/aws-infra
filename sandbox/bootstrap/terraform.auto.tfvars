@@ -1,3 +1,3 @@
 app_name = "research-a"
-owner = "research-a@wqpredtech.com.com"
+owner = "research-a@wqpredtech.com"
 region = "us-east-1"

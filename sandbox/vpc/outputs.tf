@@ -16,12 +16,17 @@ output "vpc_cidr_block" {
 //}
 
 # Subnets
-output "private_subnets" {
+output "web1_subnets" {
   description = "List of IDs of private subnets"
   value       = ["${module.vpc.private_subnets}"]
 }
 
-output "private2_subnets" {
+output "web2_subnets" {
+  description = "List of IDs of private subnets"
+  value       = ["${module.vpc.private2_subnets}"]
+}
+
+output "data1_subnets" {
   description = "List of IDs of private subnets"
   value       = ["${module.vpc.private2_subnets}"]
 }
@@ -31,14 +36,9 @@ output "public_subnets" {
   value       = ["${module.vpc.public_subnets}"]
 }
 
-output "intra_subnets" {
+output "data2_subnets" {
   description = "List of IDs of intra subnets"
   value       = ["${module.vpc.intra_subnets}"]
-}
-
-output "intra2_subnets" {
-  description = "List of IDs of intra subnets"
-  value       = ["${module.vpc.intra2_subnets}"]
 }
 
 # NAT gateways
