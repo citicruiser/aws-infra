@@ -1,7 +1,7 @@
 provider "aws" {
   region              = "${var.region}"
   version             = "~> 1.8"
-  allowed_account_ids = "${var.allowed_account_ids}"
+ // allowed_account_ids = "${var.allowed_account_ids}"
   shared_credentials_file = "${var.shared_credentials_file}"
   profile                 = "${var.profile}"
 }
@@ -13,17 +13,17 @@ terraform
 
   backend s3
   {
-    bucket         = "corp-terraformstate-corp-wqpt"
+    bucket         = "platform-terraformstate-dev-wqpr"
     key            = "vpc/terraform.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "corp-terraformlock-corp"
-    profile = "wqpt-corp"
+    dynamodb_table = "platform-terraformlock-dev"
+    profile = "wqpr-platform-dev"
   }
 }
 
 
 module "vpc" {
-  source = "../../modules/vpc-wqpt"
+  source = "../../modules/vpc-wqpr"
   name = "${var.name}"
   cidr = "${var.cidr}"
   azs             = "${var.azs}"

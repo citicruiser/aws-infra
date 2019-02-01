@@ -1,9 +1,9 @@
 
 #AWS env
 app_env = "corp"
-allowed_account_ids = ["464565879112"]
+allowed_account_ids = ["255052431419"]
 shared_credentials_file = "C:\\Users\\pwang\\.aws\\config"
-profile = "wqpr-corp"
+profile = "wqpt-corp"
 //project = ""
 
 #VPC
