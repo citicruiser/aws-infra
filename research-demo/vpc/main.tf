@@ -13,17 +13,17 @@ terraform
 
   backend s3
   {
-    bucket         = "research-terraformstate-demo-wqpr"
+    bucket         = "research-terraformstate-demo-wqpt"
     key            = "vpc/terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "research-terraformlock-demo"
-    profile = "wqpr-research-demo"
+    profile = "wqpt-research-demo"
   }
 }
 
 
 module "vpc" {
-  source = "../../modules/vpc-wqpr"
+  source = "../../modules/vpc-wqpt"
   name = "${var.name}"
   cidr = "${var.cidr}"
   azs             = "${var.azs}"

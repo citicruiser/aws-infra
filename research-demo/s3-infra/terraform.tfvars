@@ -4,3 +4,4 @@ company = "wqpt"
 
 shared_credentials_file = "C:\\Users\\pwang\\.aws\\config"
 profile = "wqpt-research-demo"
+

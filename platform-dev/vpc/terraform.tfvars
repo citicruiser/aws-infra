@@ -1,9 +1,9 @@
 
 #AWS env
-app_env = "platform"
+app_env = "platform1"
 allowed_account_ids = ["048199071553"]
 shared_credentials_file = "C:\\Users\\pwang\\.aws\\config"
-profile = "wqpr-platform-dev"
+profile = "wqpt-platform-dev"
 //project = ""
 
 #VPC
