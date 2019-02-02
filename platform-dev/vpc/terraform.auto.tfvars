@@ -1,4 +1,4 @@
 app_name = "platform1"
-owner = "tech.admin+aws.platform-dev@wqpredtech.com"
+owner = "platform1-dev@wqpredtech.com"
 region = "us-east-1"
 company = "wqpt"

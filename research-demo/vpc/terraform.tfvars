@@ -1,6 +1,6 @@
 
 #AWS env
-app_env = "research"
+app_env = "demo"
 allowed_account_ids = ["272841533360"]
 shared_credentials_file = "C:\\Users\\pwang\\.aws\\config"
 profile = "wqpt-research-demo"
