@@ -13,7 +13,7 @@ terraform
   backend s3
   {
     bucket         = "research-a-terraformstate-sbx-wqpt"
-    key            = "logging/terraform.tfstate"
+    key            = "s3-infra/terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "research-a-terraformlock-sbx"
     profile = "wqpt-sandbox1"
