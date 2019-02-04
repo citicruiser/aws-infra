@@ -10,3 +10,4 @@
 
 /.idea/
 *.bkp
+!/corp/bootstrap/terraform.tfstate

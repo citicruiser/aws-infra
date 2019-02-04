@@ -52,3 +52,21 @@ output "azs" {
   description = "A list of availability zones spefified as argument to this module"
   value       = ["${module.vpc.azs}"]
 }
+
+#Route Table ID
+output "public_route_table_ids" {
+  description = "List of IDs of public route table"
+  value       = ["${module.vpc.public_route_table_ids}"]
+}
+
+#route table for subnet web1, web2 and data1
+output "private_route_table_ids" {
+  description = "List of IDs of private route table"
+  value       = ["${module.vpc.private_route_table_ids}"]
+}
+
+#route table for subnet data2
+output "intra_route_table_ids" {
+  description = "List of IDs of intra route table"
+  value       = ["${module.vpc.intra_route_table_ids}"]
+}

@@ -13,14 +13,15 @@ terraform
 
   backend s3
   {
-    bucket         = "research-a-terraformstate-sbx-wqpt"
+    bucket         = "corp-terraformstate-corp-wqpt"
     key            = "peering-route/terraform.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "research-a-terraformlock-sbx"
-    profile = "wqpt-sandbox1"
+    dynamodb_table = "corp-terraformlock-corp"
+    profile = "wqpt-corp"
 
   }
 }
+
 
 #########################################################################
 #                         Remote States
@@ -38,23 +39,21 @@ data terraform_remote_state vpc
   }
 }
 
+//May need to enable for web1 and web2 later
+/*
 resource "aws_route" "peering-private-subnet" {
+  count = "${length(var.destination_cidr_block)}"
   route_table_id            = "${data.terraform_remote_state.vpc.private_route_table_ids[0]}"  //Route table for subnet web1, web2 and data1
-  destination_cidr_block    = "${var.destination_cidr_block}"   //CIDR Corp VPC
-  vpc_peering_connection_id = "${var.vpc_peering_connection_id}"
+  destination_cidr_block    = "${element(var.destination_cidr_block, count.index)}"   //CIDR Corp VPC
+  vpc_peering_connection_id = "${element(concat(var.vpc_peering_connection_id, list("")), count.index)}"
   //depends_on                = ["aws_route_table.testing"]
 }
-
-resource "aws_route" "peering-intra-subnet" {
-  route_table_id            = "${data.terraform_remote_state.vpc.intra_route_table_ids[0]}"  //Route table for subnet data2
-  destination_cidr_block    = "${var.destination_cidr_block}"   //CIDR Corp VPC
-  vpc_peering_connection_id = "${var.vpc_peering_connection_id}"
-  //depends_on                = ["aws_route_table.testing"]
-}
+*/
 
 resource "aws_route" "peering-public-subnet" {
-  route_table_id            = "${data.terraform_remote_state.vpc.public_route_table_ids[0]}"  //Route table for subnet data2
-  destination_cidr_block    = "${var.destination_cidr_block}"   //CIDR Corp VPC
-  vpc_peering_connection_id = "${var.vpc_peering_connection_id}"
+  count = "${length(var.destination_cidr_block)}"
+  route_table_id            = "${data.terraform_remote_state.vpc.public_route_table_ids[0]}"  //Route table for public subnets
+  destination_cidr_block    = "${element(var.destination_cidr_block, count.index)}"   //CIDR Corp VPC
+  vpc_peering_connection_id = "${element(concat(var.vpc_peering_connection_id, list("")), count.index)}"
   //depends_on                = ["aws_route_table.testing"]
 }

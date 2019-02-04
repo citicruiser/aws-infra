@@ -13,14 +13,15 @@ terraform
 
   backend s3
   {
-    bucket         = "research-a-terraformstate-sbx-wqpt"
+    bucket         = "research-terraformstate-demo-wqpt"
     key            = "peering-route/terraform.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "research-a-terraformlock-sbx"
-    profile = "wqpt-sandbox1"
+    dynamodb_table = "research-terraformlock-demo"
+    profile = "wqpt-research-demo"
 
   }
 }
+
 
 #########################################################################
 #                         Remote States

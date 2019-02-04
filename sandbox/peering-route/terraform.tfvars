@@ -4,6 +4,7 @@ app_env = "sbx"
 allowed_account_ids = ["464565879112"]
 shared_credentials_file = "C:\\Users\\pwang\\.aws\\config"
 profile = "wqpt-sandbox1"
+terraformstate = "research-a-terraformstate-sbx-wqpt"
 
 #VPC Peering ID
 vpc_peering_connection_id = "pcx-0a93c88dcfbcf6c67"
