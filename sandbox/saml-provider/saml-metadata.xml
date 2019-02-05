@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://accounts.google.com/o/saml2?idpid=C00jacd6f" validUntil="2024-01-14T23:39:12.000Z">
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <md:KeyDescriptor use="signing">
+            <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:X509Data>
+                    <ds:X509Certificate>MIIDdDCCAlygAwIBAgIGAWhT4hlEMA0GCSqGSIb3DQEBCwUAMHsxFDASBgNVBAoTC0dvb2dsZSBJ
+                        bmMuMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MQ8wDQYDVQQDEwZHb29nbGUxGDAWBgNVBAsTD0dv
+                        b2dsZSBGb3IgV29yazELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWEwHhcNMTkwMTE1
+                        MjMzOTEyWhcNMjQwMTE0MjMzOTEyWjB7MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEWMBQGA1UEBxMN
+                        TW91bnRhaW4gVmlldzEPMA0GA1UEAxMGR29vZ2xlMRgwFgYDVQQLEw9Hb29nbGUgRm9yIFdvcmsx
+                        CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+                        MIIBCgKCAQEAsk7gc9D8h76UZbfNTuFDRVoJm4avkNxh1Z0SvkWIscL5nn5uWQIC6T+xxABMdhEe
+                        XHIcGZXT2kuMyvFMHHAYEC0NIjz5nW/AGvifyR8ZPRtIsK/NuqytVID3ibhzmkf4gvqrq1aBD79E
+                        BUjettmWQ0llzzHoQ2o/XNv7delwkmJNDNSpSmMrXp7PzqyNDxhfbNsTbeynx07vi1QSjT6c99KS
+                        OxG5SsrLnUxyUwnLiExocnFWBcpwqpGMWvUYTrZkswxbT5aZadQf4Bk3EgPkGZcE4FXDstU3AfH1
+                        pSeYGBfY0D8NK4dHgY9GBcCNAJKLDts9yWeonEfL7jP3CkCObwIDAQABMA0GCSqGSIb3DQEBCwUA
+                        A4IBAQAZmSvvLhelw9h+zWS1j5odRXF+TvbxwFHwGTcFeKzmCRcvsV83YiQQJfSuEdniVT97PMSY
+                        wM7jzP6sd5sYPiJoVECBZjnZV3+na00N76azWgo6K660ehEXZ1wHcjPgiNeWtunQ4ZtW4Kx2HOmC
+                        XF8HdppLrOAmVORjlX/ltPQusjc+ttj6I1ZdGPc+H6hd4evVcyxhEvF1BNFBs0rGZ/3yFwiygobm
+                        KSM4ZaFDundCAfZrE+FCPUCbwPW/uSA1XBEykS8JfEYCnCmMRVzGBplFmp+Vcu/ot6eRrl79Ao06
+                        YiMwPNgStP28uPUNC+t0ufa+vYYLwIxfz+BOaoZU16g6</ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </md:KeyDescriptor>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://accounts.google.com/o/saml2/idp?idpid=C00jacd6f"/>
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://accounts.google.com/o/saml2/idp?idpid=C00jacd6f"/>
+    </md:IDPSSODescriptor>
+</md:EntityDescriptor>
