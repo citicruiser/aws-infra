@@ -1,12 +1,17 @@
-output role-names
+output google-developer-role
 {
-  value = {
-    beanstalk-runtime = "${module.beanstalk-runtime-role.name}"
-    ec2-runtime       = "${module.ec2-runtime-role.name}"
-    lambda-default    = "${aws_iam_role.lambda-default-role.name}"
-    lambda-general    = "${aws_iam_role.lambda-general-role.name}"
+  description = "The ARN of IAM Role"
+  value       = "${module.google-developer-role.arn}"
+}
 
-    beanstalk-payment-gateway = "${module.payment-gateway-beanstalk.name}"
-    ec2-payment-gateway = "${module.payment-gateway-ec2.name}"
-  }
+output google-admin-role
+{
+  description = "The ARN of IAM Role"
+  value       = "${module.google-admin-role.arn}"
+}
+
+output google-researcher-role
+{
+  description = "The ARN of IAM Role"
+  value       = "${module.google-researcher-role.arn}"
 }

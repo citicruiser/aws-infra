@@ -11,3 +11,18 @@ variable "allowed_account_ids" {
   type        = "list"
 }
 
+variable "google_identity_arn" {}
+variable "developer-policy-arns" {default = []}
+variable "admin-policy-arns" {default = []}
+variable "researcher-policy-arns" {default = []}
+variable "terraformstate" {} //s3 bucket for terraform state
+
+/*
+variable "tags" {
+  default = {},
+  type = "map"
+}
+
+*/
+
+
